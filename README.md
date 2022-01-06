@@ -2,6 +2,7 @@
 自宅療養連絡ツール
 #フォルダ構成
 ┣ corona　Web管理用
+
 ┣ line　LINEbot用
 ┣ MySQL_CreateTable.sql　MySQLテーブル作成用SQL
 ┗ MySQL_InsertData.sql　MySQLデータ作成用SQL
