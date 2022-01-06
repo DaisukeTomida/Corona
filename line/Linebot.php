@@ -57,7 +57,7 @@ try{
             USER_ID,
             USER_NAME
         FROM
-            LINE_USER
+            CORONA_USER
         WHERE
             LINE_ID		= :line_id
     EOM;
@@ -197,7 +197,7 @@ function update_status($dbh, $log, $user_id, $message_text){
     try {
         $SQL =
         <<<EOM
-            INSERT INTO LINE_ACCESS(
+            INSERT INTO CORONA_ACCESS(
                 USER_ID,
                 ACCESS_DATE,
                 ROUTE,
@@ -217,7 +217,7 @@ function update_status($dbh, $log, $user_id, $message_text){
 
         $SQL =
         <<<EOM
-            UPDATE LINE_USER
+            UPDATE CORONA_USER
             SET
                 LAST_ACCESS = NOW()
             WHERE
