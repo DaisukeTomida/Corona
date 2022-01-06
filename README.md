@@ -1,7 +1,7 @@
 # Corona
 自宅療養連絡ツール
 
-#フォルダ構成
+# フォルダ構成
 
 ┣ corona　Web管理用
 
@@ -12,7 +12,7 @@
 ┗ MySQL_InsertData.sql　MySQLデータ作成用SQL
 
 
-#変更箇所
+# 変更箇所
 
 
 corona/line_connect.php
@@ -27,7 +27,7 @@ line/config.php
 
   LINE Bot用情報
 
-#初期設定
+# 初期設定
 
 １．データベース等の接続情報を設定します。
 
@@ -41,7 +41,7 @@ line/config.php
 
 ６．ユーザー情報はすぐに変更してください。
 
-#その他
+# その他
 
 データに保存する際にいくつかの項目は暗号化されます。
 
