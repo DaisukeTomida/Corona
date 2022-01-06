@@ -1,0 +1,539 @@
+@charset "utf-8";
+*, *:before, *:after {
+	-webkit-box-sizing	: border-box;
+	-moz-box-sizing		: border-box;
+	-o-box-sizing		: border-box;
+	-ms-box-sizing		: border-box;
+	box-sizing			: border-box;
+}
+html{
+	margin			: 0;
+	padding			: 0;
+}
+input, select, textarea,html{
+	font-size			: 14px;
+}
+input[type="button"],
+input[type="submit"],
+input[type="reset"]{
+	padding					: 5px 20px;
+	-webkit-border-radius	: 4px;
+	-moz-border-radius		: 4px;
+	border-radius			: 4px;
+	cursor					: pointer;
+}
+
+body{
+	margin			: 0;
+	padding			: 0;
+}
+#fadeLayer{
+	position			: fixed;
+	top				: 0;
+	left				: 0;
+	right				: 0;
+	bottom			: 0;
+	z-index			: 99998;
+	cursor			: wait;
+	background		: rgba(0, 0, 0, 0.7);
+}
+#modalForm{
+	position		: fixed;
+	top				: 10vh;
+	left			: 10vw;
+	right			: 10vw;
+	bottom			: 10vh;
+	display			: none;
+	z-index			: 99999;
+	padding			: 20px;
+}
+@media only screen and (max-width: 400px) {
+	#modalForm{
+		top				: 2vh;
+		left				: 2vw;
+		right				: 2vw;
+		bottom			: 2vh;
+	}
+}
+#infoMenu{
+	position			: absolute;
+	top				: 0;
+	left				: 0;
+	right				: 0;
+	line-height			: 30px;
+	height			: 40px;
+	padding			: 4px;
+}
+#infoClose{
+	float				: right;
+	padding			: 4px;
+	cursor			: pointer;
+	text-align			: center;
+	height			: 30px;
+	line-height			: 23px;
+	width				: 30px;
+	-webkit-border-radius	: 50px;
+	-moz-border-radius	: 50px;
+	border-radius		: 50px;
+}
+
+.infoPreview{
+	position			: absolute;
+	top				: 40px;
+	left				: 0;
+	right				: 0;
+	bottom			: 0;
+	padding			: 10px 10px 0 10px;
+	overflow-y			: auto;
+}
+@media only screen and (max-width: 400px) {
+	#infoMenu{
+		font-size		: 3vw;
+	}
+}
+a{
+	text-decoration		: none;
+}
+th{
+	font-weight			: normal;
+}
+.explain,
+.hissu{
+	font-size			: 70%;
+}
+p.error{
+	margin			: 5px 0;
+}
+.alignLeft{
+	text-align			: left;
+}
+.alignCenter{
+	text-align			: center;
+}
+.alignRight{
+	text-align			: right;
+}
+#menu{
+	position			: fixed;
+	top				: 0;
+	left				: 0;
+	bottom			: 0;
+	height			: 100%;
+	width			: 170px;
+	margin			: 0;
+	padding			: 0;
+	box-sizing			: content-box;
+	overflow-y			: auto;
+	z-index			: 9999;
+}
+#menu li{
+	list-style-type		: none;
+	box-sizing			: content-box;
+}
+#menu li a{
+	display			: block;
+	padding			: 4px;
+}
+#titlename{
+	float				: left;
+	margin-left		: 10px;
+}
+#titlemembername{
+	float				: right;
+	margin-right		: 6px;
+}
+#toggle,
+#menuclose{
+	cursor			: pointer;
+}
+#toggle{
+	width			: 40px;
+	float				: left;
+}
+.togglebuttom{
+	margin			: 0;
+	margin-left		: 15px;
+}
+#title,
+#toggle,
+#titlename,
+#titlemembername,
+#menuclose,
+#footer{
+	height			: 30px;
+	line-height			: 30px;
+}
+#title{
+	position			: fixed;
+	top				: 0;
+	right				: 0;
+	overflow			: hidden;
+}
+#footer{
+	position			: fixed;
+	bottom			: 0;
+	right				: 0;
+}
+#container{
+	margin-top		: 30px;
+	margin-bottom		: 30px;
+	padding			: 10px;
+
+}
+
+/* 編集用テーブル */
+.editable{
+	width			: 100%;
+	max-width			: 500px;
+}
+.editable tbody th{
+	white-space		: nowrap;
+	text-align			: right;
+}
+.editable tbody td textarea,
+.editable tbody td input[type="text"],
+.editable tbody td input[type="textbox"],
+.editable tbody td input[type="password"],
+.editable tbody td input[type="date"],
+.editable tbody td input[type="number"]{
+	width				: 100%;
+}
+.editable tbody td input[type="date"]{
+	max-width			: 120px;
+}
+@media only screen and (max-width: 700px) {
+	.editable tbody th{
+		text-align		: left;
+	}
+	.editable tbody ,
+	.editable tbody tr,
+	.editable tbody tr th,
+	.editable tbody tr td{
+		display		: inline-block;
+		width			: 100%;
+	}
+}
+
+/* 一覧用テーブル */
+.listable{
+	width			: 100%;
+	border-collapse		: collapse;
+	border-spacing		: 0;
+	margin-top			: 10px;
+}
+.listable  th{
+	white-space		: nowrap;
+}
+/* 一覧用のアイコン */
+.listable-table{
+	width			: 100%;
+}
+.listable-table td{
+	width			: 33%;
+	text-align			: center;
+}
+.listable-icon{
+	/* 共通部品 */
+	display			: block;
+	text-align			: center;
+	width				: 3vw;
+	height			: 3vw;
+}
+/* 編集用メニュー */
+.edit-button{
+	width				: 20px;
+	height			: 20px;
+	cursor			: pointer;
+}
+.edit-menu{
+	display			: none;
+	padding			: 0;
+	margin			: 0;
+	list-style-type		: none;
+	position			: fixed;
+}
+
+.edit-menu li{
+	padding			: 4px 10px;
+	cursor			: pointer;
+	text-align			: left;
+}
+/* お知らせ用テーブル */
+.infoboard{
+	width				: 100%;
+	border-collapse		: collapse;
+	border-spacing		: 0;
+}
+.infoboard td{
+	height			: 20px;
+	line-height			: 20px
+}
+.infoboard td p{
+	padding			: 0;
+	margin			: 0;
+	width				: 100%;
+	overflow			: hidden;
+	height			: 20px;
+}
+.infoboard td.sdate{
+	white-space		: nowrap;
+	width				: 15%;
+	max-width			: 120px;
+	cursor			: pointer;
+}
+.infoboard td.tname{
+	white-space		: nowrap;
+	width				: 10%;
+	max-width			: 120px;
+	text-align			: center;
+	cursor			: pointer;
+}
+.infoboard td.title{
+	width				: 75%;
+	cursor			: pointer;
+}
+/* 受信プレビューの結果テーブル */
+.reciveResult th{
+	white-space		: nowrap;
+}
+.reciveResult th,
+.reciveResult td{
+	padding			: 4px;
+}
+@media only screen and (max-width: 700px) {
+	.reciveResult ,
+	.reciveResult  tr,
+	.reciveResult  tr th,
+	.reciveResult  tr td{
+		display		: inline-block;
+		width			: 100%;
+	}
+}
+@media only screen and (max-width: 700px) {
+	.mobile{
+		display		: none;
+	}
+	.listable-icon{
+		width			: 10vw;
+		height			: 10vw;
+	}
+}
+/* ここからお問い合わせ項目（contact） */
+p.chg_date,
+p.contactview{
+	margin			: 0;
+	cursor			: pointer;
+	user-select			: none;
+	-webkit-user-select	: none;
+	-moz-user-select	: none;
+	-ms-user-select		: none;
+	-o-user-select		: none;
+}
+#contactedit td{
+	max-width			: 400px;
+	width				: 90%;
+}
+#send_subject,
+#send_subject{
+	width				: 100%;
+}
+@media only screen and (max-width: 300px) {
+	#contactedit,
+	#contactedit tr,
+	#contactedit tr th,
+	#contactedit tr td{
+		display		: inline-block;
+		width			: 100%;
+	}
+	#contactedit tr td.send_mail{
+		font-size		: 5vw;
+	}
+}
+.send_detail{
+	width				: 100%;
+}
+/* 送信メール履歴 */
+.maildetail{
+	cursor			: pointer;
+	user-select			: none;
+	-webkit-user-select	: none;
+	-moz-user-select	: none;
+	-ms-user-select		: none;
+	-o-user-select		: none;
+}
+
+/* 受信メール設定の名称項目 */
+#recive_itemname{
+	height			: 150px;
+	overflow-y			: scroll;
+	border			: 1px solid	#666;
+}
+#recive_itemname table{
+	width				: 100%;
+}
+#recive_itemname table thead th{
+	text-align			: left;
+}
+/* フッタ部分 */
+.copyright{
+	float				: right;
+	margin-right		: 4px;
+	font-size			: 50%;
+}
+/*
+	ここからテンプレートにする
+		システムの40%は★#effff7でできています
+		システムの27%は★#8eff8eでできています
+		システムの17%は★#8effc6でできています
+		システムの6%は★#ffffb2でできています
+		システムの5%は★#e5ffffでできています
+		システムの5%は★#c993ffでできています
+		システムの解析結果を調合すると★#c2f9ceになります
+
+*/
+/* 背景色 */
+html,
+#modalForm{
+	background		: #fff;
+	font-family			: "メイリオ";
+}
+#menu{
+	background		: #333;
+}
+#menu li a:hover{
+	background		: #ffffff;
+}
+#title,
+#toggle,
+#menuclose,
+#infoMenu{
+	background		: #e1e1e1;
+}
+#footer{
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #ababab), color-stop(1.00, #fff));
+	background: -webkit-linear-gradient(#ababab, #fff);
+	background: -moz-linear-gradient(#ababab, #fff);
+	background: -o-linear-gradient(#ababab, #fff);
+	background: -ms-linear-gradient(#ababab, #fff);
+	background: linear-gradient(#ababab, #fff);
+}
+/* ボタン項目 */
+input[type="button"],
+input[type="submit"],
+input[type="reset"]{
+	border			: 1px solid #aaa;
+	background		: rgb(191 191 191);
+}
+/* 閉じるボタン項目 */
+#infoClose{
+	background		: rgba(0, 3, 173, 1);
+	color				: #fff;
+}
+
+/* 一覧用のアイコン */
+.listable-icon-tel{
+	background		: url('./img/tel.png') 50% 50% no-repeat;
+	background-size		: cover;
+}
+.listable-icon-web{
+	background		: url('./img/web.png') 50% 50% no-repeat;
+	background-size		: cover;
+}
+.listable-icon-mail{
+	background		: url('./img/mail.png') 50% 50% no-repeat;
+	background-size		: cover;
+}
+/* 文字色 */
+a{
+	color				: #000;
+}
+#menu li a{
+	color				: #fff;
+}
+#menu li a:hover{
+	color				: #000;
+}
+/* エラー項目 */
+p.error{
+	color				: #f00;
+}
+/* 説明項目 */
+.explain{
+	color				: #ccc;
+}
+/* 必須項目 */
+.hissu{
+	color				: #f00;
+}
+
+/* 線色 */
+/* 一覧用テーブル */
+.listable > thead > tr > th,
+.listable > thead > tr > td,
+.listable > tbody > tr > th,
+.listable > tbody > tr > td{
+	border			: 1px solid #606060;
+}
+/* お知らせ用テーブル */
+.infoboard > tbody > tr > th,
+.infoboard > tbody > tr > td{
+	border-bottom		: 1px dashed #606060;
+}
+/*ヘッダの背景色 */
+.listable > thead > tr{
+	background		: #333;
+	color			: #fff;
+}
+/* 行の背景色 */
+.listable > tbody > tr:nth-child(even) {
+	background		: #fff;
+}
+.listable > tbody > tr:nth-child(odd) {
+	background		: #ebebeb;
+}
+.listable > tbody > tr:hover {
+	background		: #8d8d8d;
+}
+
+.edit-menu{
+	background		: #fff;
+}
+.edit-menu li:hover{
+	background		: #606060;
+	color			: #fff;
+}
+
+/* 編集用テーブル */
+.editable tbody th{
+	background		: #ccc;
+}
+.editable tbody th,
+.editable tbody td{
+	border			: 1px solid #aaa;
+}
+/* 受信プレビューの結果テーブル */
+.reciveResult th{
+	background		: #ccc;
+}
+.reciveResult th,
+.reciveResult td{
+	border			: 1px solid #aaa;
+}
+/* ここからお問い合わせ項目（contact） */
+#contactedit th{
+	background		: #ccc;
+}
+#contactedit th,
+#contactedit td{
+	border			: 1px solid #aaa;
+	padding			: 4px;
+}
+.status_red{
+	color: #f00;
+}
+.status_orange{
+	color: rgb(255, 136, 0);
+}
+.status_message div{
+	float:left;
+}
