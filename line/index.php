@@ -21,6 +21,12 @@
             user-select: none;
             font-size:120%;
         }
+        input, textarea {
+            -webkit-user-select : auto;
+            -moz-user-select: auto;
+            -ms-user-select: auto;
+            user-select: auto;
+        }
         :focus {
             outline: none;
         }
