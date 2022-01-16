@@ -6,8 +6,10 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
+        <meta charset="utf-8">
         <meta http-equiv="Pragma" content="no-cache">
         <meta http-equiv="Cache-Control" content="no-cache">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
         <title>ユーザー登録</title>
         <style>
         *{
@@ -19,7 +21,7 @@
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
-            font-size:120%;
+            font-size:100%;
         }
         input, textarea {
             -webkit-user-select : auto;
@@ -38,38 +40,19 @@
             margin:0 auto;
         }
         #title{
-            position:fixed;
-            height:10%;
-            left:0;
-            right:0;
-            top:0;
             text-align:center;
         }
         #user_id{
-            position:fixed;
             height:10%;
-            width:80%;
-            left:10%;
-            right:10%;
-            top:20%;
+            width:100%;
         }
         #message{
-            position:fixed;
-            bottom:20%;
-            left:10%;
-            right:10%;
-            width:80%;
-            top:40%;
             height:30%;
             color:#f00;
         }
         #submit{
-            position: fixed;
-            bottom: 10%;
             height:10%;
-            width:80%;
-            left:10%;
-            right:10%;
+            width:100%;
         }
         #loading{
             position: fixed;
@@ -194,10 +177,11 @@
     </head>
     <body>
         <div id="container">
-            <h1 id="title">連絡を受けたユーザーIDを入力してください。</h1>
+            <p id="title">連絡ユーザーID</p>
             <input type="text" id="user_id">
             <input type="hidden" id="line_id">
             <input type="button" id="submit" value="登録">
+            <p>連絡を受けたユーザーIDを<br>入力してください。</p>
         </div>
         <div id="message"></div>
         <div id="log" style="display:none;width:96%;height:100px;"></div>

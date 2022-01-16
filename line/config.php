@@ -19,5 +19,7 @@ define("DATABASE_PASS", "");
 define("ACCESSTOKEN", "");
 //LINE用のLIFF ID
 define("LIFF_ID", "");
+//データベーステーブルのプレフィックス
+define("DBPRE", "CORONA_");
 
 ?>

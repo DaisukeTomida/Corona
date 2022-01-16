@@ -51,16 +51,14 @@ $log->info('MESSAGE:DB接続[END]');
 //ユーザー情報取得
 $log->info('MESSAGE:ユーザー情報取得[START]');
 try{
-    $SQL =
-    <<<EOM
-        SELECT
-            USER_ID,
-            USER_NAME
-        FROM
-            CORONA_USER
-        WHERE
-            LINE_ID		= :line_id
-    EOM;
+    $SQL  = "SELECT ";
+    $SQL .= "   USER_ID, ";
+    $SQL .= "   USER_NAME ";
+    $SQL .= "FROM ";
+    $SQL .= "   " . DBPRE . "USER ";
+    $SQL .= "WHERE ";
+    $SQL .= "   LINE_ID		= :line_id ";
+
     $log->debug($SQL);
     $stmt = $dbh->prepare($SQL, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
     $stmt->bindParam(':line_id', $line_id, PDO::PARAM_STR);
@@ -195,34 +193,30 @@ function update_status($dbh, $log, $user_id, $message_text){
     //トランザクション処理を開始
     $dbh->beginTransaction();
     try {
-        $SQL =
-        <<<EOM
-            INSERT INTO CORONA_ACCESS(
-                USER_ID,
-                ACCESS_DATE,
-                ROUTE,
-                MESSAGE
-            )VALUES(
-                :user_id,
-                NOW(),
-                'LINE',
-                :message
-            )
-        EOM;
+        $SQL  = "INSERT INTO " . DBPRE . "ACCESS( ";
+		$SQL .= "   USER_ID, ";
+		$SQL .= "   ACCESS_DATE, ";
+		$SQL .= "   ROUTE, ";
+		$SQL .= "   MESSAGE ";
+		$SQL .= ")VALUES( ";
+		$SQL .= "   :user_id, ";
+		$SQL .= "   NOW(), ";
+		$SQL .= "   'LINE', ";
+		$SQL .= "   :message ";
+		$SQL .= ") ";
+
         $log->debug($SQL);
         $stmt = $dbh->prepare($SQL, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
         $stmt->bindParam(':message', $message_text, PDO::PARAM_STR);
         $stmt->execute();
 
-        $SQL =
-        <<<EOM
-            UPDATE CORONA_USER
-            SET
-                LAST_ACCESS = NOW()
-            WHERE
-                USER_ID     = :user_id
-        EOM;
+        $SQL  = "UPDATE " . DBPRE . "USER ";
+		$SQL .= "SET ";
+		$SQL .= "   LAST_ACCESS = NOW() ";
+		$SQL .= "WHERE ";
+		$SQL .= "   USER_ID     = :user_id ";
+
         $log->debug($SQL);
         $stmt = $dbh->prepare($SQL, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
         $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
