@@ -6,7 +6,16 @@
 興味のある方はご覧ください。
 
 Qiita
+
 https://qiita.com/STYLE-D/items/52832f164e011ec4c94b
+
+
+概要の動画はこちら
+
+Youtube
+
+https://www.youtube.com/watch?v=huckVYRFGzE&t=16s
+
 
 # 更新履歴
 
